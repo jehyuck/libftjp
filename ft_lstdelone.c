@@ -6,7 +6,7 @@
 /*   By: jeyou <jeyou@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 13:07:07 by jeyou             #+#    #+#             */
-/*   Updated: 2022/04/11 13:07:29 by jeyou            ###   ########.fr       */
+/*   Updated: 2022/04/11 15:12:53 by jeyou            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
+	if (!lst)
+		return ;
 	del(lst->content);
 	free(lst);
 }
