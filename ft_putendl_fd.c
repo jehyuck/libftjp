@@ -6,15 +6,15 @@
 /*   By: jeyou <jeyou@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 13:27:03 by jeyou             #+#    #+#             */
-/*   Updated: 2022/04/11 13:27:47 by jeyou            ###   ########.fr       */
+/*   Updated: 2022/04/11 16:54:56 by jeyou            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	if (fd < 0)
+	if (fd < 0 || !s)
 		return ;
-	write(fd, &s, ft_strlen(s));
+	write(fd, s, ft_strlen(s));
 	write(fd, "\n", 1);
 }

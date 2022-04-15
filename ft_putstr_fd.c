@@ -6,7 +6,7 @@
 /*   By: jeyou <jeyou@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 13:28:49 by jeyou             #+#    #+#             */
-/*   Updated: 2022/04/11 13:29:10 by jeyou            ###   ########.fr       */
+/*   Updated: 2022/04/11 16:55:28 by jeyou            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	if (fd < 0)
+	if (fd < 0 || !s)
 		return ;
-	write(fd, &s, ft_strlen(s));
+	write(fd, s, ft_strlen(s));
 }

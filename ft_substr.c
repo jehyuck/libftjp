@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeyou <jeyou@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/11 13:41:17 by jeyou             #+#    #+#             */
-/*   Updated: 2022/04/11 16:35:47 by jeyou            ###   ########.fr       */
+/*   Created: 2022/04/11 19:59:15 by jeyou             #+#    #+#             */
+/*   Updated: 2022/04/15 15:11:12 by jeyou            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char *ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;
+	size_t	j;
+	char	*rtn;
 
-	i = 0;
-	while ((s1[i] || s2[i]) && i < n)
+	if (!s)
+		return (NULL);
+	if (start + len > ft_strlen(s))
+		len = ft_strlen(s) - start;
+	rtn = (char *)malloc(sizeof(char) *(len + 1));
+	if (!rtn)
+		return (0);
+	i = start;
+	j = 0;
+	while (s[i] && j < len)
 	{
-		if (s1[i] != s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		rtn[j] = s[i];
 		i++;
+		j++;
 	}
-	return (0);
+	rtn[j] = 0;
+	return (rtn);
 }

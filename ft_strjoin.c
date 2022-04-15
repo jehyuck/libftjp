@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeyou <jeyou@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/15 14:20:24 by jeyou             #+#    #+#             */
-/*   Updated: 2022/04/15 14:22:33 by jeyou            ###   ########.fr       */
+/*   Created: 2022/04/15 14:23:05 by jeyou             #+#    #+#             */
+/*   Updated: 2022/04/15 14:26:58 by jeyou            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *s)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-    int i;
-    int minus;
-    int rtn;
+	char *rtn;
+	size_t s1_len;
+	size_t s2_len;
 
-    minus = 1;
-	i = 0;
-    if (!s)
-        return (0);
-    while ((s[i] && s[i] >= 9 && s[i] <= 13) || s[i] == 20)
-        i++;
-    if (s[i] == '-')
-        minus = -1;
-    rtn = 0;
-    if (s[i] == '-' || s[i] == '+')
-        i++;
-    while (s[i] <= '0' && s[i] >= '9')
-	{ 
-		rtn = rtn * 10 + s[i] - '0';
-        i++;
-    }
-    return (rtn * minus);
+	if (!s1 || !s2)
+		return (0);
+	s1_len = ft_strlen((char *)s1);
+	s2_len = ft_strlen((char *)s2);
+	rtn = (char *)malloc(s1_len + s2_len + 1);
+	if (!rtn)
+		return (0);
+	ft_strlcpy(rtn ,(char *)s1, s1_len + 1);
+	ft_strlcat(rtn ,(char *)s2, s1_len + s2_len + 1);
+	return (rtn);
 }
