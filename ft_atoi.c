@@ -6,7 +6,7 @@
 /*   By: jeyou <jeyou@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 14:20:24 by jeyou             #+#    #+#             */
-/*   Updated: 2022/04/15 14:22:33 by jeyou            ###   ########.fr       */
+/*   Updated: 2022/04/19 15:23:02 by jeyou            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,25 @@
 
 int	ft_atoi(const char *s)
 {
-    int i;
-    int minus;
-    int rtn;
+	int		i;
+	int		minus;
+	long	rtn;
 
-    minus = 1;
+	minus = 1;
 	i = 0;
-    if (!s)
-        return (0);
-    while ((s[i] && s[i] >= 9 && s[i] <= 13) || s[i] == 20)
-        i++;
-    if (s[i] == '-')
-        minus = -1;
-    rtn = 0;
-    if (s[i] == '-' || s[i] == '+')
-        i++;
-    while (s[i] <= '0' && s[i] >= '9')
-	{ 
+	if (!s)
+		return (0);
+	while ((s[i] && s[i] >= 9 && s[i] <= 13) || s[i] == ' ')
+		i++;
+	if (s[i] == '-')
+		minus = -1;
+	rtn = 0;
+	if (s[i] == '-' || s[i] == '+')
+		i++;
+	while (s[i] >= '0' && s[i] <= '9' && s[i])
+	{
 		rtn = rtn * 10 + s[i] - '0';
-        i++;
-    }
-    return (rtn * minus);
+		i++;
+	}
+	return ((int)(rtn * minus));
 }

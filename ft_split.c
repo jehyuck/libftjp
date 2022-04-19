@@ -6,7 +6,7 @@
 /*   By: jeyou <jeyou@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 14:29:32 by jeyou             #+#    #+#             */
-/*   Updated: 2022/04/15 14:33:18 by jeyou            ###   ########.fr       */
+/*   Updated: 2022/04/15 15:21:56 by jeyou            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_word_count(char const *s, char c)
 		if (s[i] != c)
 		{
 			cnt += 1;
-			while (s[i]&& s[i] != c)
+			while (s[i] && s[i] != c)
 			i++;
 		}
 		else

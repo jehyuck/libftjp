@@ -6,7 +6,7 @@
 /*   By: jeyou <jeyou@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 15:29:00 by jeyou             #+#    #+#             */
-/*   Updated: 2022/04/11 16:57:10 by jeyou            ###   ########.fr       */
+/*   Updated: 2022/04/19 16:07:33 by jeyou            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	last;
 	char	*str;
 
-	str = 0;
+	str = NULL;
 	if (s1 && set)
 	{
 		start = 0;
@@ -27,9 +27,11 @@ char	*ft_strtrim(char const *s1, char const *set)
 			start++;
 		while (last > 0 && ft_strchr(set, s1[last - 1]))
 			last--;
+		if (start > last)
+			return (ft_strdup(""));
 		str = (char *)malloc(sizeof(char) * (last - start + 1));
 		if (str)
-			ft_strlcpy(str, (char *)&s1[start], (last - start + 1));
+			ft_strlcpy(str, &s1[start], last - start + 1);
 	}
 	return (str);
 }

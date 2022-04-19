@@ -6,13 +6,13 @@
 /*   By: jeyou <jeyou@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 19:59:15 by jeyou             #+#    #+#             */
-/*   Updated: 2022/04/15 15:11:12 by jeyou            ###   ########.fr       */
+/*   Updated: 2022/04/15 15:20:28 by jeyou            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;
 	size_t	j;
