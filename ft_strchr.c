@@ -6,7 +6,7 @@
 /*   By: jeyou <jeyou@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 13:29:11 by jeyou             #+#    #+#             */
-/*   Updated: 2022/04/11 13:29:51 by jeyou            ###   ########.fr       */
+/*   Updated: 2022/04/19 19:55:50 by jeyou            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strchr(const char *s, int c)
 	s_temp = (char *)s;
 	while (1)
 	{
-		if (*s_temp == c)
+		if (*s_temp == (unsigned char)c)
 			return (s_temp);
 		if (*s_temp == '\0')
 			break ;
