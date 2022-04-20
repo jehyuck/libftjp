@@ -13,7 +13,7 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int		i;
+	int	i;
 
 	i = ft_strlen(s);
 	if (c == 0)
@@ -24,7 +24,7 @@ char	*ft_strrchr(const char *s, int c)
 			break ;
 		i--;
 	}
-	if (s[i] == c)
+	if (i > -1 && s[i] == (unsigned char)c)
 		return ((char *)(s + i));
 	return (0);
 }
