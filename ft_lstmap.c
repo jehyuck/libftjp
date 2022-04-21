@@ -17,9 +17,9 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*rtn;
 	t_list	*temp;
 
-	if (lst == NULL || f == NULL)
-		return (NULL);
-	rtn = NULL;
+	if (lst == 0 || f == 0)
+		return (0);
+	rtn = 0;
 	while (lst)
 	{
 		temp = ft_lstnew((*f)(lst->content));
