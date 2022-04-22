@@ -6,11 +6,16 @@
 /*   By: jeyou <jeyou@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 15:27:20 by jeyou             #+#    #+#             */
-/*   Updated: 2022/03/29 15:27:48 by jeyou            ###   ########.fr       */
+/*   Updated: 2022/04/22 17:34:27 by jeyou            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+int	ft_islower(int c)
+{
+	return (c >= 'a' && c <= 'z');
+}
 
 int	ft_toupper(int c)
 {

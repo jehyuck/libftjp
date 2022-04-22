@@ -6,7 +6,7 @@
 /*   By: jeyou <jeyou@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 15:26:29 by jeyou             #+#    #+#             */
-/*   Updated: 2022/04/19 20:19:56 by jeyou            ###   ########.fr       */
+/*   Updated: 2022/04/22 17:12:54 by jeyou            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,21 +39,17 @@ char	*ft_itoa(int n)
 	rtn = (char *)malloc(len + 1);
 	if (!rtn)
 		return (0);
+	rtn[len] = 0;
 	i = 0;
 	if (n < 0)
 		rtn[i++] = '-';
 	while (len-- > i)
 	{
 		if (n < 0)
-		{
 			rtn[len] = '0' + n % 10 * (-1);
-			n /= 10;
-		}
 		else
-		{
 			rtn[len] = '0' + n % 10;
-			n /= 10;
-		}
+		n /= 10;
 	}
 	return (rtn);
 }

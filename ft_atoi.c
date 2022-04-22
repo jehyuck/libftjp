@@ -6,7 +6,7 @@
 /*   By: jeyou <jeyou@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 14:20:24 by jeyou             #+#    #+#             */
-/*   Updated: 2022/04/19 15:23:02 by jeyou            ###   ########.fr       */
+/*   Updated: 2022/04/22 16:20:44 by jeyou            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_atoi(const char *s)
 {
-	int		i;
-	int		minus;
-	long	rtn;
+	int	i;
+	int	minus;
+	int	rtn;
 
 	minus = 1;
 	i = 0;
@@ -34,5 +34,5 @@ int	ft_atoi(const char *s)
 		rtn = rtn * 10 + s[i] - '0';
 		i++;
 	}
-	return ((int)(rtn * minus));
+	return (rtn * minus);
 }

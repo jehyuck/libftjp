@@ -6,7 +6,7 @@
 /*   By: jeyou <jeyou@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 14:17:19 by jeyou             #+#    #+#             */
-/*   Updated: 2022/04/19 16:14:40 by jeyou            ###   ########.fr       */
+/*   Updated: 2022/04/22 17:32:03 by jeyou            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void	*), void (*del)(void *));
-int		ft_islower(int c);
-int		ft_isupper(int c);
 void	ft_bzero(void *s, size_t n);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
