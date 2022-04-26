@@ -6,12 +6,12 @@
 /*   By: jeyou <jeyou@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 13:34:14 by jeyou             #+#    #+#             */
-/*   Updated: 2022/04/15 14:32:11 by jeyou            ###   ########.fr       */
+/*   Updated: 2022/04/26 15:43:47 by jeyou            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-int	ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (s[i])
