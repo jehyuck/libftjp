@@ -18,7 +18,6 @@ SRCS =  ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strl
 		ft_calloc.c ft_strjoin.c ft_split.c ft_substr.c ft_itoa.c
 OBJS = $(SRCS:.c=.o)
 CFLAGS = -Wall -Werror -Wextra
-LIB = ./
 NAME = libft.a
 SRCS_B = ft_lstnew.c \
 	  		ft_lstadd_front.c \
@@ -48,7 +47,7 @@ bonus :
 	make BONUS=1 all
 
 %.o : %.c
-	$(CC) $(CFLAGS) -c -o $@ $^ -I $(LIB)
+	$(CC) $(CFLAGS) -c -o $@ $^
 
 clean :
 	rm -rf $(OBJS) $(OBJS_B)
