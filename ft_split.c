@@ -6,7 +6,7 @@
 /*   By: jeyou <jeyou@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 14:29:32 by jeyou             #+#    #+#             */
-/*   Updated: 2022/04/15 15:21:56 by jeyou            ###   ########.fr       */
+/*   Updated: 2022/04/28 03:44:47 by jeyou            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,23 @@ int	ft_word_count(char const *s, char c)
 	return (cnt);
 }
 
-char	*ft_make_word(const char *s, char c)
+char	**ft_free_rtn(char **target, int *n)
+{
+	int		i;
+	char	**rtn;
+
+	rtn = malloc(sizeof(char *) * 1);
+	if (!rtn)
+		return (0);
+	i = 0;
+	while (i < *n)
+		free(target[i++]);
+	*n = 0;
+	*rtn = 0;
+	return (rtn);
+}
+
+char	*ft_make_word(const char *s, char c, int *err)
 {
 	char	*rtn;
 	int		i;
@@ -43,6 +59,11 @@ char	*ft_make_word(const char *s, char c)
 	while (s[len] && s[len] != c)
 		len++;
 	rtn = (char *)malloc(len + 1);
+	if (!rtn)
+	{
+		*err = 1;
+		return (0);
+	}
 	i = 0;
 	while (s[i] && s[i] != c)
 	{
@@ -56,28 +77,27 @@ char	*ft_make_word(const char *s, char c)
 char	**ft_split(char const *s, char c)
 {
 	char	**rtn;
-	int		word_num;
-	int		i;
+	int		err;
+	int		j;
 
+	err = 0;
 	if (!s)
 		return (0);
-	word_num = ft_word_count(s, c);
-	rtn = (char **)malloc(sizeof(char *) * (word_num + 1));
+	rtn = (char **)malloc(sizeof(char *) * (ft_word_count(s, c) + 1));
 	if (!rtn)
 		return (0);
-	i = 0;
-	while (s[i])
+	j = 0;
+	while (*s && !err)
 	{
-		if (s[i] != c)
-		{
-			*rtn = ft_make_word(&s[i], c);
-			while (s[i] && s[i] != c)
-			i++;
-			rtn++;
-		}
-		else
-			i++;
+		while (!err && *s && *s == c)
+			s++;
+		if (*s && *s != c)
+			rtn[j++] = ft_make_word(s, c, &err);
+		while (!err && *s && (*s != c))
+			s++;
 	}
-	*rtn = 0;
-	return (rtn - word_num);
+	if (err)
+		rtn = ft_free_rtn(rtn, &j);
+	rtn[j] = 0;
+	return (rtn);
 }
