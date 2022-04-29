@@ -6,7 +6,7 @@
 /*   By: jeyou <jeyou@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 14:29:32 by jeyou             #+#    #+#             */
-/*   Updated: 2022/04/29 16:03:41 by jeyou            ###   ########.fr       */
+/*   Updated: 2022/04/29 19:12:38 by jeyou            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,15 @@ int	ft_word_count(char const *s, char c)
 	return (cnt);
 }
 
-char	**ft_free_rtn(char **target, int *n)
+char	**ft_free_rtn(char **target, int n)
 {
 	int		i;
-	char	**rtn;
 
-	rtn = malloc(sizeof(char *) * 1);
-	if (!rtn)
-		return (0);
 	i = 0;
-	while (i < *n)
+	while (i < n)
 		free(target[i++]);
-	*n = 0;
-	*rtn = 0;
-	return (rtn);
+	free(target);
+	return (0);
 }
 
 char	*ft_make_word(const char *s, char c, int *err)
@@ -97,7 +92,7 @@ char	**ft_split(char const *s, char c)
 			s++;
 	}
 	if (err)
-		rtn = ft_free_rtn(rtn, &j);
+		return (ft_free_rtn(rtn, j));
 	rtn[j] = 0;
 	return (rtn);
 }
