@@ -14,7 +14,7 @@
 
 int	check_over_range(unsigned long long sum, int sign)
 {
-	if (sum > LONG_MAX - 1 && sign == -1)
+	if (sum - 1 > LONG_MAX && sign == -1)
 		return (0);
 	if (sum > LONG_MAX && sign == 1)
 		return (-1);
